@@ -134,7 +134,7 @@ ol {
 
 .lt_main {
   height: 2000px;
-  background: pink;
+  /* background: pink; */
   padding-left: 180px;
   padding-top: 50px;
   /* 点击左上角icon的动画 */
@@ -170,10 +170,21 @@ ol {
   line-height: 50px;
   font-size: 20px;
 }
+
 /* 图区 */
 
 .main_content .echarts_left,
 .main_content .echarts_right {
   width: 48%;
   height: 400px;
+}
+
+/* 表格 user.html*/
+
+/* 需求: 让所有表格的 th和td 内容居中  注意权重 */
+
+.lt_content .table.table-bordered th,
+.lt_content .table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
 }
