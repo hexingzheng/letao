@@ -40,13 +40,15 @@ $(function () {
     $(".lt_main").toggleClass("hideout");
   })
 
-  //4. 点击模态框退出按钮  销毁用户登录信息  公共退出功能
-  $(".main_header .icon_right").click(function () {
-    //显示模态框
-    $("#out_modal").show();
-  });
+  //4. 点击模态框内退出按钮  销毁用户登录信息  公共退出功能
 
-  //点击退出按钮
+  // $(".main_header .icon_right").click(function () {
+  //点击右上角按钮
+  //   //显示模态框    页面用了a连接跳转   可以不用点击事件  
+  //   $("#out_modal").show();
+  // });
+
+  //点击退出按钮  发送ajax 销毁用户登录信息  后面登录均需要重新登录 
   $("#btn_logout").click(function () {
     $.ajax({
       type: "get",

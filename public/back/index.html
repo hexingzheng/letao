@@ -34,7 +34,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="first" id="category">
+          <a href="javascript:;" id="category">
             <i class="glyphicon glyphicon-list"></i>
             <span>分类管理</span>
           </a>
@@ -71,8 +71,17 @@
         </li>
         <li class="active">首页</li>
       </ol>
+      <!-- 可视化图 插件 需要准备两个有宽高的容器-->
+      <div class="main_content">
+        <div class="echarts_left pull-left" id="main"></div>
+        <div class="echarts_right pull-right"></div>
+      </div>
     </div>
+
+
+
   </div>
+
   <!-- 点击右上角的模态框 -->
   <div class="modal fade" id="out_modal" tabindex="-1">
     <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
@@ -101,6 +110,8 @@
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/echarts/echarts.min.js"></script>
+  <script src="./js/index.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
 </body>
