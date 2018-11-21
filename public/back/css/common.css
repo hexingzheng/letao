@@ -1,6 +1,38 @@
+/* 公共类 */
+
 .bg_color {
   background-color: #222d32;
 }
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mt_20 {
+  margin-top: 20px;
+}
+
+.ft_color {
+  color: #A94442;
+}
+
+/* login静态页面样式 */
 
 .panel .panel-title {
   height: 40px;
@@ -11,4 +43,130 @@
 
 .login {
   margin-top: 150px;
+}
+
+/* 首页静态页面样式 */
+
+/* 左侧边栏样式 */
+
+.lt_aside {
+  width: 180px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #222d32;
+  z-index: 999;
+  /* 点击左上角icon的动画 */
+  transition: left 1s;
+}
+
+.lt_aside.hideout {
+  left: -180px;
+}
+
+.lt_aside .title a {
+  display: block;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #367fa9;
+  font-size: 20px;
+  color: #fff;
+}
+
+.lt_aside .user {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.lt_aside .user img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.lt_aside .user .userName {
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.lt_aside .nav {
+  width: 100%;
+}
+
+/* 切记注意.有二级菜单只能用padding 和margin */
+
+/* text-align: center; */
+
+.lt_aside .nav li a {
+  display: block;
+  line-height: 40px;
+  padding-left: 40px;
+  color: #fff;
+  /* 透明左边框 */
+  border-left: 3px solid transparent;
+}
+
+.lt_aside .nav li .second {
+  display: none;
+}
+
+/* 让菜单高亮且有左侧边框 */
+
+.lt_aside .nav li a.current {
+  background-color: #1d1f21;
+  border-left: 3px solid #367fa9;
+}
+
+.lt_aside .nav li .second a {
+  padding-left: 60px;
+}
+
+/* 首页右侧样式 */
+
+.lt_main {
+  width: 100%;
+  height: 100%;
+  background: pink;
+  padding-left: 180px;
+  padding-top: 50px;
+  /* 点击左上角icon的动画 */
+  transition: padding-left 1s;
+}
+
+.lt_main.hideout {
+  padding-left: 0;
+}
+
+.lt_main .main_header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  padding-left: 180px;
+  background: #3c8dbc;
+  /* 点击左上角icon的动画 */
+  transition: padding-left 1s;
+}
+
+.lt_main .main_header.hideout {
+  padding-left: 0;
+}
+
+.lt_main .main_header .icon_left,
+.lt_main .main_header .icon_right {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
 }
