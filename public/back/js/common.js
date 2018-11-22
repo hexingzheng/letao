@@ -3,25 +3,6 @@
  */
 
 $(function () {
-
-  //1.  进度条功能
-
-
-  // ajax全局事件
-  // 需求: 1. 在第一个ajax发送的时候, 开启进度条
-  //      2.  在全部的ajax请求完成时, 关闭进度条
-  $(document).ajaxStart(function () {
-    //开启进度条
-    NProgress.start();
-  });
-
-  $(document).ajaxStop(function () {
-    //可以模拟网络延迟  （实际开发中不用网络延迟）
-    setInterval(function () {
-      NProgress.done();
-    }, 500)
-  });
-
   //2.   侧边导航高亮功能是将current类添加在a链接上进行显示
   //点击分类管理 id=categroy 让二级菜单显示
 
@@ -61,4 +42,21 @@ $(function () {
     })
   });
 
-})
+});
+//1.  进度条功能
+
+
+// ajax全局事件
+// 需求: 1. 在第一个ajax发送的时候, 开启进度条
+//      2.  在全部的ajax请求完成时, 关闭进度条
+$(document).ajaxStart(function () {
+  //开启进度条
+  NProgress.start();
+});
+
+$(document).ajaxStop(function () {
+  //可以模拟网络延迟  （实际开发中不用网络延迟）
+  setInterval(function () {
+    NProgress.done();
+  }, 500)
+});
