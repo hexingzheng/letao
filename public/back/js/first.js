@@ -82,6 +82,7 @@ $(function () {
           // 关闭模态框
           $('#addModal').modal("hide");
           // 重新渲染页面, 重新渲染第一页
+          //因为新添加在第一个（后台倒序排列）
           currentPage = 1;
           render();
 
