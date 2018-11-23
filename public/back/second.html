@@ -125,37 +125,45 @@
           </div>
 
           <div class="modal-body">
-            <!-- 下拉菜单 -->
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li>
-                  <a href="#">Action</a>
-                </li>
-                <li>
-                  <a href="#">Another action</a>
-                </li>
-                <li>
-                  <a href="#">Something else here</a>
-                </li>
-                <li>
-                  <a href="#">Separated link</a>
-                </li>
-              </ul>
+            <div class="form-group">
+              <!-- 下拉菜单 -->
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  <span id="textBox">请选择一级菜单</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <!-- 挖个坑 -->
+                  <!-- <li>
+                  <a href="#">嘎嘎馆</a>
+                </li> -->
+                </ul>
+              </div>
+              <!-- 隐藏域 -->
+              <input type="hidden" name="categoryId">
+              <!-- hot  1表示火热-->
+              <input type="hidden" name="hot" value="1">
             </div>
             <!-- 每行外层要套一个 form-group, 如果不套, 后面表单校验插件会报错  -->
+            <!-- 二级菜单输入 -->
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入二级分类" name="categoryName">
+              <input type="text" class="form-control mt_20" placeholder="请输入二级分类" name="brandName">
             </div>
-            <!-- 上传图片 -->
+            <!-- 上传图片按钮-->
             <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <input type="file" id="exampleInputFile">
-              <p class="help-block">Example block-level help text here.</p>
+              <!-- <button class="btn btn-default">上传图片</button> -->
+              <!-- 插件提供 -->
+              <!-- name指定图片上传时的name属性 -->
+              <!-- data-url指定图片上传时的接口地址 -->
+              <!-- multiple指定多文件上传 -->
+              <label for="fileupload" class="btn btn-default">上传图片</label>
+              <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
+            </div>
+            <!-- 图片预览 -->
+            <div class="form-group imgBox">
+              <!-- 隐藏域 -->
+              <input type="hidden" name="brandLogo">
+              <img src="../upload/brand/4eb24470-d9f9-11e8-b219-391c07d74577.jpg" style="width: 100px;">
             </div>
           </div>
           <div class="modal-footer">
@@ -191,7 +199,7 @@
     </div>
   </div>
 
-  <!-- 准备模板 -->
+  <!-- 准备模板 页面渲染-->
   <script type="text/html" id="secondTpl">
     {{ each rows v i }}
     <tr>
@@ -204,12 +212,23 @@
       {{ /each }}
   </script>
 
+  <!-- 准备模板  下拉菜单渲染 -->
+  <script type="text/html" id="dropdownTpl">
+    {{ each rows v i }}
+    <li>
+      <a href="javascript:;" data-id={{v.id}}>{{v.categoryName}}</a>
+    </li>
+    {{ /each }}
+  </script>
+
   <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./js/second.js"></script>
