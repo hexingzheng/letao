@@ -88,6 +88,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- 挖个坑 -->
             <!-- <tr>
               <td>1</td>
               <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
@@ -120,64 +121,74 @@
             </button>
             <h4 class="modal-title">添加分类</h4>
           </div>
-
+          <!-- 模态框下拉菜单 -->
           <div class="modal-body">
             <div class="form-group">
-              <!-- 下拉菜单 -->
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                  <span id="textBox">请选择一级菜单</span>
+                  <span id="textBox">请选择二级分类</span>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li>
+                  <!-- 挖个坑 -->
+                  <!-- <li>
                     <a href="#">嘎嘎馆</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
+              <input type="hidden" name="brandId">
+              <input type="hidden" name="statu" value="1">
             </div>
 
-            <!-- 二级菜单输入 -->
+
+            <!-- 输入框 -->
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入二级分类" name="brandName">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品名称" name="proName">
             </div>
+
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入商品名称" name="brandName">
+              <textarea class="form-control mt_20" placeholder="请输入商品描述" name="proDesc"></textarea>
             </div>
+
             <div class="form-group">
-              <textarea name="#" class="form-control mt_20" placeholder="请输入商品描述"></textarea>
+              <input type="text" class="form-control mt_20" placeholder="请输入商品库存" name="num">
             </div>
+
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入商品库存" name="brandName">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品尺码" name="size">
             </div>
+
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入商品尺码" name="brandName">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品原价" name="oldPrice">
             </div>
+
             <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入商品原价" name="brandName">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品现价" name="price">
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control mt_20" placeholder="请输入商品现价 name=" brandName ">
-            </div>
+
+
             <!-- 上传图片按钮-->
-            <div class="form-group ">
+            <div class="form-group">
               <!-- <button class="btn btn-default ">上传图片</button> -->
               <!-- 插件提供 -->
               <!-- name指定图片上传时的name属性 -->
               <!-- data-url指定图片上传时的接口地址 -->
               <!-- multiple指定多文件上传 -->
-              <label for="fileupload " class="btn btn-default ">上传图片</label>
-              <input type="file " id="fileupload " name="pic1 " data-url="/category/addSecondCategoryPic " style="display:
-                none; ">
+              <label for="fileupload" class="btn btn-default">上传图片</label>
+              <input type="file" id="fileupload" name="pic1" data-url="/product/addProductPic" style="display: none;" multiple>
             </div>
             <!-- 图片预览 -->
-            <div class="form-group imgBox ">
+            <div class="form-group" id="imgBox">
               <!-- <img src="../upload/brand/4eb24470-d9f9-11e8-b219-391c07d74577.jpg " style="width: 100px; "> -->
+              <!-- 专门用于图片校验的隐藏域 图片数量必须3张-->
+              <input type="hidden" name="picStatus">
             </div>
           </div>
-          <div class="modal-footer ">
-            <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
-            <button type="submit " class="btn btn-primary ">添加</button>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary">添加</button>
           </div>
         </form>
       </div>
@@ -186,23 +197,23 @@
 
 
   <!-- 点击右上角的模态框 -->
-  <div class="modal fade " id="out_modal " tabindex="-1 ">
+  <div class="modal fade" id="out_modal" tabindex="-1">
     <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
-    <div class="modal-dialog modal-sm ">
-      <div class="modal-content ">
-        <div class="modal-header ">
-          <button type="button " class="close " data-dismiss="modal ">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
-          <h4 class="modal-title " id="myModalLabel ">温馨提示</h4>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
         </div>
-        <div class="modal-body ft_color ">
-          <i class="glyphicon glyphicon-info-sign "></i>
+        <div class="modal-body ft_color">
+          <i class="glyphicon glyphicon-info-sign"></i>
           <span>您确定要退出后台管理系统吗？</span>
         </div>
-        <div class="modal-footer ">
-          <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
-          <button type="button " class="btn btn-primary " id="btn_logout ">退出</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="btn_logout">退出</button>
         </div>
       </div>
     </div>
@@ -212,30 +223,30 @@
 
 
   <!-- 点击右上角的模态框 -->
-  <div class="modal fade " id="out_modal " tabindex="-1 ">
+  <div class="modal fade" id="out_modal" tabindex="-1">
     <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
-    <div class="modal-dialog modal-sm ">
-      <div class="modal-content ">
-        <div class="modal-header ">
-          <button type="button " class="close " data-dismiss="modal ">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
-          <h4 class="modal-title " id="myModalLabel ">温馨提示</h4>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
         </div>
-        <div class="modal-body ft_color ">
-          <i class="glyphicon glyphicon-info-sign "></i>
+        <div class="modal-body ft_color">
+          <i class="glyphicon glyphicon-info-sign"></i>
           <span>您确定要退出后台管理系统吗？</span>
         </div>
-        <div class="modal-footer ">
-          <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
-          <button type="button " class="btn btn-primary " id="btn_logout ">退出</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="btn_logout">退出</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- 页面渲染模板 -->
-  <script type="text/html " id="productTpl ">
+  <script type="text/html" id="productTpl">
   {{ each rows v i }}
     <tr>
       <td>{{i+1+(page-1)*size}}</td>
@@ -246,24 +257,34 @@
       <td>{{v.statu === 1 ? "已上架 " : "已下架 "}}</td>
       <td data-id={{ v.id }}>
         {{ if v.statu ===1 }}
-        <button class="btn btn-danger ">下架</button>
+        <button class="btn btn-danger">下架</button>
         {{else}}
-        <button class="btn btn-success ">上架</button>
+        <button class="btn btn-success">上架</button>
         {{/if}}
       </td>
     </tr>
   {{ /each }}
   </script>
+  <!-- 渲染模态框下拉列表模板 -->
+  <script type="text/html" id="dropdownTpl">
+  {{ each rows v i }}
+  <li>
+    <a href="javascript:;" data-id={{v.id}}>{{v.brandName}}</a>
+  </li>
+  {{ /each }}
+  </script>
 
-  <script src="./lib/jquery/jquery.min.js "></script>
-  <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
-  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js "></script>
-  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js "></script>
-  <script src="./lib/nprogress/nprogress.js "></script>
-  <script src="./lib/artTemplate/template-web.js "></script>
-  <script src="./js/common.js "></script>
-  <script src="./js/isLogin.js "></script>
-  <script src="./js/product.js "></script>
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/isLogin.js"></script>
+  <script src="./js/product.js"></script>
 </body>
 
 </html>
