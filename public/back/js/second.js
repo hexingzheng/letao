@@ -1,5 +1,4 @@
 $(function () {
-
   //1.获取数据动态渲染页面
   var currentPage = 1;
   var pageSize = 5;
@@ -33,7 +32,7 @@ $(function () {
         });
       }
     });
-  };
+  }
 
   //3.点击添加分类按钮   显示模态框
   //4. 动态渲染下拉列表  当点击下拉按钮时再请求数据瞬间渲染时间太短  当点击添加分类按钮时就请求数据渲染下拉列表
@@ -55,12 +54,10 @@ $(function () {
         var htmlStr = template("dropdownTpl", info);
         $(".dropdown-menu").html(htmlStr);
       }
-    })
+    });
   });
 
   //5. 点击下拉菜单里面的内容 赋值给button框 需要事件委托
-
-
 
   $(".dropdown-menu").on("click", "a", function () {
     var txt = $(this).text();
@@ -78,7 +75,9 @@ $(function () {
     // 参数1. 字段名称
     // 参数2. 校验状态  VALID成功
     // 参数3. 配置校验规则, 用来配置错误提示信息
-    $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
+    $("#form")
+      .data("bootstrapValidator")
+      .updateStatus("categoryId", "VALID");
   });
 
   //6.点击图片上传（因为是button按钮无法获取file文件） 可以关联一个type=file的input（隐藏即可）框
@@ -100,24 +99,24 @@ $(function () {
       // 参数1. 字段名称
       // 参数2. 校验状态  VALID成功
       // 参数3. 配置校验规则, 用来配置错误提示信息
-      $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
+      $("#form")
+        .data("bootstrapValidator")
+        .updateStatus("brandLogo", "VALID");
     }
   });
-
-
 
   // 7. 添加分类表单校验 用插件
   // 用ajax提交给后台 一级目录名称提交是id, 图片提交是地址（ 这些是不想被用户看到） 用隐藏域完成
 
-  $('#form').bootstrapValidator({
+  $("#form").bootstrapValidator({
     // 配置排除项, 需要对隐藏域进行校验
     excluded: [],
 
     // 配置小图标
     feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok', // 校验成功
-      invalid: 'glyphicon glyphicon-remove', // 校验失败
-      validating: 'glyphicon glyphicon-refresh' // 校验中
+      valid: "glyphicon glyphicon-ok", // 校验成功
+      invalid: "glyphicon glyphicon-remove", // 校验失败
+      validating: "glyphicon glyphicon-refresh" // 校验中
     },
 
     // 配置校验字段
@@ -144,11 +143,10 @@ $(function () {
         }
       }
     }
-  })
-
+  });
 
   //8.表单校验成功事件
-  $("#form").on('success.form.bv', function (e) {
+  $("#form").on("success.form.bv", function (e) {
     //阻止表单默认提交
     e.preventDefault();
     //使用ajax提交逻辑
@@ -166,10 +164,12 @@ $(function () {
         // console.log(info);
         currentPage = 1;
         render();
+        //表单重置
+        $("#form").data("bootstrapValidator").resetForm(true);
+        //img 和span 非表单元素需要手动重置
+        $("#textBox").text('请选择一级分类');
+        $(".imgBox img").attr("src", "../upload/brand/4eb24470-d9f9-11e8-b219-391c07d74577.jpg");
       }
     })
   });
-
-
-
 })
