@@ -65,44 +65,205 @@
     </div>
     <!-- 流式布局 右侧下部分内容-->
     <div class="container-fluid">
+      <!-- 面包屑导航 -->
       <ol class="breadcrumb mt_20">
         <li>
           <a href="./index.html">管理系统</a>
         </li>
         <li class="active">商品管理</li>
       </ol>
+      <div class="lt_content">
+        <!-- 添加分类按钮 -->
+        <button id="add_product" class="btn btn-default">添加商品</button>
+        <table class="table table-bordered table-hover mt_20">
+          <thead>
+            <tr>
+              <th width="10%">序号</th>
+              <th width="25%">商品名称</th>
+              <th width="25%">商品描述</th>
+              <th width="10%">商品库存</th>
+              <th width="10%">商品尺寸</th>
+              <th width="10%">商品状态</th>
+              <th width="10%">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>1</td>
+              <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+              <td>描述123123</td>
+              <td>44</td>
+              <td>35-56</td>
+              <td>已上架</td>
+              <td><button class="btn btn-danger">下架</button></td>
+            </tr> -->
+          </tbody>
+        </table>
+        <!-- 分页容器 依托bootstrap的分页插件  text-right也是bootstrap提供的 -->
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- 点击右上角的模态框 -->
-  <div class="modal fade" id="out_modal" tabindex="-1">
+
+  <!-- 点击添加商品显示的模态框 -->
+  <div class="modal fade" id="product_modal" tabindex="-1">
     <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
+        <!-- 用form包裹获去信息提交表单 -->
+        <form id="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <!-- 下拉菜单 -->
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  <span id="textBox">请选择一级菜单</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">嘎嘎馆</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 二级菜单输入 -->
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入二级分类" name="brandName">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品名称" name="brandName">
+            </div>
+            <div class="form-group">
+              <textarea name="#" class="form-control mt_20" placeholder="请输入商品描述"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品库存" name="brandName">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品尺码" name="brandName">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品原价" name="brandName">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control mt_20" placeholder="请输入商品现价 name=" brandName ">
+            </div>
+            <!-- 上传图片按钮-->
+            <div class="form-group ">
+              <!-- <button class="btn btn-default ">上传图片</button> -->
+              <!-- 插件提供 -->
+              <!-- name指定图片上传时的name属性 -->
+              <!-- data-url指定图片上传时的接口地址 -->
+              <!-- multiple指定多文件上传 -->
+              <label for="fileupload " class="btn btn-default ">上传图片</label>
+              <input type="file " id="fileupload " name="pic1 " data-url="/category/addSecondCategoryPic " style="display:
+                none; ">
+            </div>
+            <!-- 图片预览 -->
+            <div class="form-group imgBox ">
+              <!-- <img src="../upload/brand/4eb24470-d9f9-11e8-b219-391c07d74577.jpg " style="width: 100px; "> -->
+            </div>
+          </div>
+          <div class="modal-footer ">
+            <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
+            <button type="submit " class="btn btn-primary ">添加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 点击右上角的模态框 -->
+  <div class="modal fade " id="out_modal " tabindex="-1 ">
+    <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
+    <div class="modal-dialog modal-sm ">
+      <div class="modal-content ">
+        <div class="modal-header ">
+          <button type="button " class="close " data-dismiss="modal ">
             <span>&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          <h4 class="modal-title " id="myModalLabel ">温馨提示</h4>
         </div>
-        <div class="modal-body ft_color">
-          <i class="glyphicon glyphicon-info-sign"></i>
+        <div class="modal-body ft_color ">
+          <i class="glyphicon glyphicon-info-sign "></i>
           <span>您确定要退出后台管理系统吗？</span>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" id="btn_logout">退出</button>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
+          <button type="button " class="btn btn-primary " id="btn_logout ">退出</button>
         </div>
       </div>
     </div>
   </div>
 
 
-  <script src="./lib/jquery/jquery.min.js"></script>
-  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./js/common.js"></script>
-  <script src="./js/isLogin.js"></script>
+
+
+  <!-- 点击右上角的模态框 -->
+  <div class="modal fade " id="out_modal " tabindex="-1 ">
+    <!-- bootstrap里面有模态框大小样式组件 modal-dialog modal-sm-->
+    <div class="modal-dialog modal-sm ">
+      <div class="modal-content ">
+        <div class="modal-header ">
+          <button type="button " class="close " data-dismiss="modal ">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title " id="myModalLabel ">温馨提示</h4>
+        </div>
+        <div class="modal-body ft_color ">
+          <i class="glyphicon glyphicon-info-sign "></i>
+          <span>您确定要退出后台管理系统吗？</span>
+        </div>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-default " data-dismiss="modal ">取消</button>
+          <button type="button " class="btn btn-primary " id="btn_logout ">退出</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页面渲染模板 -->
+  <script type="text/html " id="productTpl ">
+  {{ each rows v i }}
+    <tr>
+      <td>{{i+1+(page-1)*size}}</td>
+      <td>{{v.proName}}</td>
+      <td>{{v.proDesc}}</td>
+      <td>{{v.num}}</td>
+      <td>{{v.size}}</td>
+      <td>{{v.statu === 1 ? "已上架 " : "已下架 "}}</td>
+      <td data-id={{ v.id }}>
+        {{ if v.statu ===1 }}
+        <button class="btn btn-danger ">下架</button>
+        {{else}}
+        <button class="btn btn-success ">上架</button>
+        {{/if}}
+      </td>
+    </tr>
+  {{ /each }}
+  </script>
+
+  <script src="./lib/jquery/jquery.min.js "></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js "></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js "></script>
+  <script src="./lib/nprogress/nprogress.js "></script>
+  <script src="./lib/artTemplate/template-web.js "></script>
+  <script src="./js/common.js "></script>
+  <script src="./js/isLogin.js "></script>
+  <script src="./js/product.js "></script>
 </body>
 
 </html>
