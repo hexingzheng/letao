@@ -1,0 +1,12 @@
+.main_left{
+  width: 90px;
+  height: 100%;
+}
+.main_left li a{
+  display: block;
+  background: #e3e4e5;
+  text-align: center;
+  line-height: 50px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
