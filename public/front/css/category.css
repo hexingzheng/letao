@@ -1,12 +1,46 @@
 .main_left{
+  position: relative;
   width: 90px;
   height: 100%;
+  float: left;
+  /* background: orange; */
 }
+
 .main_left li a{
   display: block;
   background: #e3e4e5;
   text-align: center;
+  width: 90px;
+  height: 50px;
   line-height: 50px;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+.main_left li a.current{
+  background: #fff;
+  border-right: none;
+}
+.main_right{
+  position: relative;
+  height: 100%; 
+  overflow: hidden;
+  /* background: pink; */
+}
+.main_right li{
+  float: left;
+  width: 33.33%;
+  padding-top: 10px;
+}
+.main_right li a{
+  display: block;
+  text-align: center;
+}
+.main_right li a img{
+  width: 70px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+.tip{
+  padding: 10px;
 }
